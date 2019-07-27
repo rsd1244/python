@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-#Python table to print the multiplication table of a give number
+#Python table to print the multiplication table of a given number
 
 n = int(input('Enter a number: '))
 
