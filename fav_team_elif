@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+
+team = input("What is your favorite NFC North Team? ")
+
+if team == "Bears":
+        print("Nice! The monsters of the midway are the best team in the NFL!")
+elif team == "Packers":
+        print('Oh I think you meant Hot Garbage!')
+elif team == "Lions":
+        print('Rebuilding since 1957 huh?')
+elif team == "Vikings": 
+        print('Why dont Vikings eat cereal?  Everytime they get close to a bowl, they choke!')
+else:
+        print("The",team,'are not in the NFC North')
