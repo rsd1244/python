@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+lst = []
+num_in_list = int(input("How many in your list: "))
+
+for n in range(num_in_list):
+	numbers = int(input("Enter your numbers: "))
+	lst.append(numbers)
+print("Here is the maximum number in your list: ", max(lst))
+print("here is the minimum number in your list: ", min(lst))
