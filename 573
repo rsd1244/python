@@ -1,0 +1,149 @@
+from __future__ import print_function
+import pyWars
+import codecs
+#import local_pyWars as pyWars
+
+def answer1(datasample):
+    return datasample+5
+
+def answer2(x):
+    return codecs.encode(x, 'rot13')
+
+def answer3(x):
+    return codecs.decode(x, 'base64')
+
+def answer4(x):
+   return x.upper()
+
+def answer5(x):
+    return x.find('SANS')
+
+def answer6(x):
+    return x[::-1]
+
+def answer7(x):
+    return x + x[::-1] + x
+
+def answer8(x):
+    return x[1] + x[4] + x[8]
+
+def answer9(x):
+    return x[-1] + x[1:-1] + x[0]
+
+def answer10(x):
+    return x[:len(x) // 2][::-1] + x[len(x) // 2:]
+
+def answer11(x):
+    return x.replace('E', '3').replace('A', '4').replace('T', '7').replace('S', '5').replace('G', '6')
+
+def answer12(x):
+    return x[2]
+
+def answer13(x):
+    return list(range(1, x))
+
+def answer14(x):
+    return len(x)
+
+def answer15(x):
+    return x.split(',')[9]
+
+def answer16(x):
+    return x.split('$')[2] 
+
+def answer17(x):
+    x.append("Pywars rocks")
+    return x
+
+def answer18(x):
+    total = 0
+    for num in x:
+        total = total + num
+    return total
+
+def answer19(x):
+    total = 0
+    for num in x.split():
+        total = total + int(num)
+    return total
+
+def answer20(x):
+    return x.join(['this', 'python', 'stuff', 'really', 'is', 'fun'])
+
+def answer21(x):
+    answerlist = []
+    for num in range(1,1001):
+        if num % x == 0:
+            answerlist.append(num)
+    return answerlist
+
+def answer21a(x):
+    return list(range(0, 1001, x))[1:]
+
+def answer22(somestring):
+    return codecs.decode(''.join(somestring), "HEX").decode()
+
+def answer23(two_lists):
+    return sorted(set(two_lists[0] + two_lists[1]))
+
+def answer24(alist):
+    return sorted(alist)
+
+def answer25(x):
+    newlist = []
+    for i in x:
+        first, second = i.split(',')
+        if int(second) % int(first) == 0:
+            newlist.append('True')
+        else:
+            newlist.append('False')
+    return newlist
+
+def answer26(alist):
+    newlist = []
+    for i in range(len(alist)):
+        newlist.append(type(alist[i]))
+    return newlist
+
+def answer27(adict):
+    return sorted(adict)
+
+def answer28(adict):
+    return sorted(adict.values())
+
+def main():
+    print("#1", d.answer( 1, answer1(d.data(1))))
+    print("#2", d.answer( 2, answer2(d.data(2))))
+    print("#3", d.answer( 3, answer3(d.data(3))))
+    print("#4", d.answer( 4, answer4(d.data(4))))
+    print("#5", d.answer( 5, answer5(d.data(5))))
+    print("#6", d.answer( 6, answer6(d.data(6))))
+    print("#7", d.answer( 7, answer7(d.data(7))))
+    print("#8", d.answer( 8, answer8(d.data(8))))
+    print("#9", d.answer( 9, answer9(d.data(9))))
+    print("#10", d.answer( 10, answer10(d.data(10))))
+    print("#11", d.answer( 11, answer11(d.data(11))))
+    print("#12", d.answer( 12, answer12(d.data(12))))
+    print("#13", d.answer( 13, answer13(d.data(13))))
+    print("#14", d.answer( 14, answer14(d.data(14))))
+    print("#15", d.answer( 15, answer15(d.data(15))))
+    print("#16", d.answer( 16, answer16(d.data(16))))
+    print("#17", d.answer( 17, answer17(d.data(17))))
+    print("#18", d.answer( 18, answer18(d.data(18))))
+    print("#19", d.answer( 19, answer19(d.data(19))))
+    print("#20", d.answer( 20, answer20(d.data(20))))
+    print("#21", d.answer( 21, answer21(d.data(21))))
+    print("#21", d.answer( 21, answer21a(d.data(21))))
+    print("#22", d.answer( 22, answer22(d.data(22))))
+    print("#23", d.answer( 23, answer23(d.data(23))))
+    print("#24", d.answer( 24, answer24(d.data(24))))
+    print("#25", d.answer( 25, answer25(d.data(25))))
+    print("#26", d.answer( 26, answer26(d.data(26))))
+    print("#27", d.answer( 27, answer27(d.data(27))))
+    print("#28", d.answer( 28, answer28(d.data(28))))
+
+if __name__ == "__main__":
+    d = pyWars.exercise()
+    d.login("rdeel","MECC123___")
+    main()
+    d.logout()
