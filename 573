@@ -111,6 +111,33 @@ def answer27(adict):
 def answer28(adict):
     return sorted(adict.values())
 
+def answer29(adict):
+    return sorted(adict.items())
+
+def answer30(adict):
+    return adict['python'] + adict['rocks']
+
+def answer31(adict):
+    return adict.get('6-2017').get('Vista')
+
+def answer32(thedata):
+    highest=0
+    highmonth=""
+    sorteddict = sorted(thedata.keys(),key=lambda x:int(x.split('-')[0]))
+    for mon in sorteddict :
+        tot=float(thedata[mon]['NT*'])+float(thedata[mon]['WinXP'])
+        tot+=float(thedata[mon]['Vista'])
+        if tot>=highest:
+            highmonth=mon
+            highest=tot
+    return highmonth.split("-")[0]
+
+#print donum32(data)
+
+
+def answer33(filepath):
+    return len(open(filepath).read())
+
 def main():
     print("#1", d.answer( 1, answer1(d.data(1))))
     print("#2", d.answer( 2, answer2(d.data(2))))
@@ -141,6 +168,11 @@ def main():
     print("#26", d.answer( 26, answer26(d.data(26))))
     print("#27", d.answer( 27, answer27(d.data(27))))
     print("#28", d.answer( 28, answer28(d.data(28))))
+    print("#29", d.answer( 29, answer29(d.data(29))))
+    print("#30", d.answer( 30, answer30(d.data(30))))
+    print("#31", d.answer( 31, answer31(d.data(31))))
+    print("#32", d.answer( 32, answer32(d.data(32))))
+    print("#33", d.answer( 33, answer33(d.data(33))))
 
 if __name__ == "__main__":
     d = pyWars.exercise()
