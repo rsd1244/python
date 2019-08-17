@@ -1,7 +1,13 @@
 from __future__ import print_function
 import pyWars
 import codecs
+import os
+import gzip
+import re
 #import local_pyWars as pyWars
+
+def answer0(x):
+    return x
 
 def answer1(datasample):
     return datasample+5
@@ -132,13 +138,48 @@ def answer32(thedata):
             highest=tot
     return highmonth.split("-")[0]
 
-#print donum32(data)
-
 
 def answer33(filepath):
     return len(open(filepath).read())
 
+def answer34(filepath):
+    files = os.listdir(filepath)
+    return sorted(files)
+
+def answer35(sometuple):
+    file_path, line_num = sometuple
+    file_list = gzip.open(file_path, 'rt').readlines()
+    return file_list[line_num -1]
+
+def answer36(some_data):
+    answer = []
+    for cwd, lod, lof in os.walk('/home/student/Public/log/'):
+        for filename in lof:
+            thepath = os.path.join(cwd, filename)
+            filecontent = open(thepath, 'rb').read()
+            if some_data.encode() in filecontent:
+                answer.append(thepath)
+    return sorted(answer)
+
+def answer40(alist):
+    return len(re.findall('python', alist, re.IGNORECASE))
+
+def answer41(astring):
+    return re.findall(r'.*?[?.!]  ', astring)
+
+def answer42(some_data):
+    return list(map('-'.join, re.findall(r'(\d{3})[- ]?(\d{2})[- ]?(\d{4})', some_data)))
+
+def answer43(some_data):
+    answer = []
+    for eachsplit in some_data.split('!'):
+        splitstr, splitnum = eachsplit.split(',')
+        regex = '.' * int(splitnum)
+        answer.append(re.findall(regex, splitstr))
+    return answer
+
 def main():
+    print("#0", d.answer( 0, answer0(d.data(0))))
     print("#1", d.answer( 1, answer1(d.data(1))))
     print("#2", d.answer( 2, answer2(d.data(2))))
     print("#3", d.answer( 3, answer3(d.data(3))))
@@ -173,6 +214,13 @@ def main():
     print("#31", d.answer( 31, answer31(d.data(31))))
     print("#32", d.answer( 32, answer32(d.data(32))))
     print("#33", d.answer( 33, answer33(d.data(33))))
+    print("#34", d.answer( 34, answer34(d.data(34))))
+    print("#35", d.answer( 35, answer35(d.data(35))))
+    print("#36", d.answer( 36, answer36(d.data(36))))
+    print("#40", d.answer( 40, answer40(d.data(40))))
+    print("#41", d.answer( 41, answer41(d.data(41))))
+    print("#42", d.answer( 42, answer42(d.data(42))))
+    print("#43", d.answer( 43, answer43(d.data(43))))
 
 if __name__ == "__main__":
     d = pyWars.exercise()
