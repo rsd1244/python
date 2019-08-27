@@ -178,6 +178,17 @@ def answer43(some_data):
         answer.append(re.findall(regex, splitstr))
     return answer
 
+def answer44(some_data):
+    return ','.join(list(map(''.join, re.findall(r"([A-Z])(.*?[^0]\1)", some_data))))
+
+def answer46(logtuple):
+    logname, hostname = logtuple
+    logfile = open('/home/student/Public/log/dnslogs/' + logname).read()
+    client_host_pairs = re.findall(r'client ([\d.]{7,15}).*?query: (\S+) IN', logfile)
+    return sorted([ip for ip, host in client_host_pairs if host == hostname])
+
+
+
 def main():
     print("#0", d.answer( 0, answer0(d.data(0))))
     print("#1", d.answer( 1, answer1(d.data(1))))
@@ -221,6 +232,8 @@ def main():
     print("#41", d.answer( 41, answer41(d.data(41))))
     print("#42", d.answer( 42, answer42(d.data(42))))
     print("#43", d.answer( 43, answer43(d.data(43))))
+    print("#44", d.answer( 44, answer44(d.data(44))))
+    print("#46", d.answer( 46, answer46(d.data(46))))
 
 if __name__ == "__main__":
     d = pyWars.exercise()
