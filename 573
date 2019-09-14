@@ -4,6 +4,7 @@ import codecs
 import os
 import gzip
 import re
+from scapy.all import *
 #import local_pyWars as pyWars
 
 def answer0(x):
@@ -187,7 +188,25 @@ def answer46(logtuple):
     client_host_pairs = re.findall(r'client ([\d.]{7,15}).*?query: (\S+) IN', logfile)
     return sorted([ip for ip, host in client_host_pairs if host == hostname])
 
+def answer47(clientip):
+     answer = []
+     for fname in os.listdir('/home/student/Public/log/dnslogs'):
+         fdata = open('/home/student/Public/log/dnslogs/' + fname).read()
+         regex = 'client %s.*?query: (\S+) IN' % (clientip)
+         answer.extend(re.findall(regex, fdata))
+     return sorted(answer)
 
+def answer50(thedata):
+    pkts = Ether(thedata)
+    return pkts[TCP].seq
+
+def answer51(thedata):
+    somevar = Ether(thedata)
+    return somevar.load
+
+def answer52(inlist):
+    pkts = scapy.plist.PacketList([Ether(x) for x in inlist])
+    return b"".join([x[Raw].load for x in pkts]).decode()
 
 def main():
     print("#0", d.answer( 0, answer0(d.data(0))))
@@ -234,9 +253,13 @@ def main():
     print("#43", d.answer( 43, answer43(d.data(43))))
     print("#44", d.answer( 44, answer44(d.data(44))))
     print("#46", d.answer( 46, answer46(d.data(46))))
+    print("#47", d.answer( 47, answer47(d.data(47))))
+    print("#50", d.answer( 50, answer50(d.data(50))))
+    print("#51", d.answer( 51, answer51(d.data(51))))
+    print("#52", d.answer( 52, answer52(d.data(52))))
 
 if __name__ == "__main__":
     d = pyWars.exercise()
-    d.login("rdeel","MECC123___")
+    d.login("","")
     main()
     d.logout()
