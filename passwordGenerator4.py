@@ -69,5 +69,5 @@ else:
     for x in range(password_length):
         password += random.choice(charset)
 
-# We then print the users generated password
-print("Here is your secure password: "+ password)
+    # We then print the users generated password
+    print("Here is your secure password: "+ password)
