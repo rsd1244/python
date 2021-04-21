@@ -21,6 +21,6 @@ def portscanner(port):
         print("Port %d is closed" % (port))
     else:
         print("Port %d is open" % (port))
-print('Time take:', time.time() - startTime)
+print('Time taken:', time.time() - startTime)
 
 portscanner(port)
