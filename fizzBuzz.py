@@ -3,6 +3,8 @@
 lower = int(input("Enter a number to start counting from: "))
 upper = int(input("Enter a number to count up to: "))
 
+total = upper - lower
+
 div_30 = 0
 div_5 = 0
 div_3 = 0
@@ -33,7 +35,7 @@ for number in range(lower, upper + 1):
             print("Bazz")
             div_none += 1
 
-print("The total of numbers evaluated was " + str(number) +'.')
+print("The total of numbers evaluated was " + str(total) +'.')
 print("There were", div_30, "numbers that were divisible by 30.")
 print("There were", div_5, "numbers that were divisible by 5.")
 print("There were", div_3, "numbers that were divisible by 3.")
